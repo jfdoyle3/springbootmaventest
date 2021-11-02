@@ -1,15 +1,15 @@
-package com.example.intellijmaven.entity;
+package com.example.intellijmaven.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
 
 @Entity
 public class Employee {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String role;
@@ -19,17 +19,9 @@ public class Employee {
 //    private String salary;
 //    private Date dateHired;
 
-
-
     public Employee() {}
 
     public Employee(String name, String role) {
-        this.name = name;
-        this.role = role;
-    }
-
-    public Employee(Long id, String name, String role, Integer age) {
-        this.id = id;
         this.name = name;
         this.role = role;
     }
@@ -58,7 +50,4 @@ public class Employee {
         this.role = role;
     }
 
-    public String toString() {
-        return String.format("Employee(id=%s, name=%s, role=%s)", id, name, role);
-    }
 }

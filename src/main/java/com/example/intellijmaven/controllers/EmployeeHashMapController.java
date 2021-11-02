@@ -1,6 +1,6 @@
-package com.example.intellijmaven.controller;
+package com.example.intellijmaven.controllers;
 
-import com.example.intellijmaven.entity.Employee;
+import com.example.intellijmaven.entities.Employee;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @RequestMapping("/employees")
-public class EmployeeController {
+public class EmployeeHashMapController {
     private Map<Long, Employee> employees = new HashMap<>();
     private AtomicLong idCounter = new AtomicLong();
 //    private final EmployeeRepository repository;
@@ -20,9 +20,9 @@ public class EmployeeController {
 //        this.repository = repository;
 //    }
 
-    public EmployeeController() {
+    public EmployeeHashMapController() {
         Long id = idCounter.incrementAndGet();
-        employees.put(id, new Employee(id, "Jim", "Semicolon finder", 25));
+        employees.put(id, new Employee("Jim", "Semicolon finder"));
     }
 
 
