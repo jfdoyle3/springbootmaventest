@@ -3,29 +3,35 @@ package com.example.intellijmaven.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Employee {
-    private @Id
+
+    @Id
     @GeneratedValue
-    Long id;
+    private Long id;
     private String name;
     private String role;
-    private Integer age;
+//    private String department;
+//    private String location;
+//    private String supervisor;
+//    private String salary;
+//    private Date dateHired;
+
+
 
     public Employee() {}
 
-    public Employee(String name, String role, Integer age) {
+    public Employee(String name, String role) {
         this.name = name;
         this.role = role;
-        this.age = age;
     }
 
     public Employee(Long id, String name, String role, Integer age) {
         this.id = id;
         this.name = name;
         this.role = role;
-        this.age = age;
     }
 
     public Long getId() {
@@ -52,15 +58,7 @@ public class Employee {
         this.role = role;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public String toString() {
-        return String.format("Employee(id=%s, name=%s, role=%s, age=%s)", id, name, role, age);
+        return String.format("Employee(id=%s, name=%s, role=%s)", id, name, role);
     }
 }
